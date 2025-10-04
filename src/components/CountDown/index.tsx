@@ -124,8 +124,8 @@ export default function CountDown(props: { bgColor: string }) {
   useConfig(updateConfig)
 
   return (
-    <main style={{backgroundColor: props.bgColor}} className={classnames({'main-config': isConfig, 'main': true})}>
-      <div className='content'>
+    <main style={{backgroundColor: props.bgColor}} className={classnames({ 'main': true})}>
+      {/* <div className='content'> */}
         <CountdownView
           t={t}
           availableUnits={availableUnits}
@@ -133,7 +133,8 @@ export default function CountDown(props: { bgColor: string }) {
           key={config.target}
           isConfig={isConfig}
         />
-      </div>
+      {/* </div> */}
+
       {
         isConfig && <ConfigPanel t={t} config={config} setConfig={setConfig} availableUnits={availableUnits} />
       }
@@ -188,7 +189,7 @@ function CountdownView({ config, isConfig, availableUnits, t }: ICountdownView) 
 
   return (
     <div style={{ width: '100vw', textAlign: 'center', overflow: 'hidden' }}>
-
+main
       {config.showTitle ? <p style={{ color }} className={classnames('count-down-title', {
         'count-down-title-config': isConfig
       })}>
