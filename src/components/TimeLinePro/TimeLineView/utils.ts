@@ -76,10 +76,16 @@ function buildVisGroups(items: RawItem[]) {
     const labels = Array.from(new Set(items.map(i => i.group).filter(Boolean))) as (string | number)[];
     return labels.map(g => ({ id: g, content: String(g) }));
 }
-
+ const fromMsToInput = (ms?: number) => {
+    if (!ms) return undefined;
+    const d = new Date(ms);
+    // Semi DatePicker 支持接收 Date
+    return d;
+  };
 export {
     toMs,
     buildVisGroups,
     normalizeToItems,
-    rowsToItems
+    rowsToItems,
+    fromMsToInput
 }
